@@ -36,7 +36,7 @@ const fs = require('fs');
 const path = require('path');
 dotenv.config();
 
-const storedClientSecret = process.env.GENAI_CLIENT_SECRET
+const storedClientSecret = 'test'
 
 app.use(express.json()); // To parse JSON bodies
 app.use(cors())
@@ -70,7 +70,7 @@ const vertexAI = new VertexAI({project: process.env.PROJECT, location: process.e
 const generativeModel = vertexAI.getGenerativeModel({
     model: 'gemini-1.5-flash',
     generationConfig: {maxOutputTokens: 2500, temperature: 0.4, candidateCount: 1}
-});
+}).generateContent();
 app.post('/generateQuerySummary', verifyClientSecret, async (req, res) => {
     const { query, description, nextStepsInstructions } = req.body; // Update to receive query and description
     try {

@@ -18,7 +18,7 @@ export const generateQuerySuggestions = async (
         queryResults: querySummaries,
         querySummaries,
         nextStepsInstructions: nextStepsInstructions,
-        client_secret: restfulService === 'http://localhost:5000' ? process.env.GENAI_CLIENT_SECRET : extensionSDK.createSecretKeyTag("genai_client_secret")
+        client_secret: restfulService === 'http://localhost:5000' ? process.env.GENAI_CLIENT : extensionSDK.createSecretKeyTag("GENAI_CLIENT")
       })
     });
 

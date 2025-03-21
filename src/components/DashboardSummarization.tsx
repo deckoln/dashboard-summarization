@@ -315,7 +315,8 @@ export const DashboardSummarization: React.FC = () => {
         extensionSDK,
         dashboardMetadata,
         setQuerySummaries,
-        setLoadingStates
+        setLoadingStates,
+        core40SDK
       );
       setHasInitialized(true);
     } catch (error) {
@@ -337,7 +338,8 @@ export const DashboardSummarization: React.FC = () => {
         extensionSDK,
         dashboardMetadata,
         setQuerySummaries,
-        setLoadingStates
+        setLoadingStates,
+        core40SDK
       );
       setIsExpanded(false);
     } catch (error) {

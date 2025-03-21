@@ -33,7 +33,7 @@ resource "time_sleep" "wait_after_apis_activate" {
 
 # Create the secret
 resource "google_secret_manager_secret" "genai_secret" {
-  secret_id = "GENAI_CLIENT_SECRET"
+  secret_id = "GENAI_CLIENT"
   project   = var.project_id
 
   replication {
@@ -45,7 +45,7 @@ resource "google_secret_manager_secret" "genai_secret" {
 # Add the secret version - you'll need to update this with your actual secret value
 resource "google_secret_manager_secret_version" "genai_secret_version" {
   secret      = google_secret_manager_secret.genai_secret.id
-  secret_data = var.genai_client_secret_value
+  secret_data = var.GENAI_CLIENT_value
 }
 
 # Create service account for Cloud Run
@@ -114,7 +114,7 @@ resource "google_cloud_run_v2_service" "default" {
         }
 
         env {
-          name = "GENAI_CLIENT_SECRET"
+          name = "GENAI_CLIENT"
           value_source {
             secret_key_ref {
               secret = google_secret_manager_secret.genai_secret.secret_id

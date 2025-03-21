@@ -1,16 +1,16 @@
 variable "project_id" {
   type = string
-  default = "YOUR_PROJECT_ID"
+  default = "infinitalk-dev"
 }
 
 variable "deployment_region" {
   type = string
-  default = "YOUR_REGION"
+  default = "us-central1"
 }
 
 variable "docker_image" {
     type = string
-    default = "YOUR_DOCKER_IMAGE_URL"
+    default = "gcr.io/infinitalk-dev/dashboard-summarization-docker-repo/websocketserviceimage:test"
 }
 
 variable "cloud_run_service_name" {
@@ -18,9 +18,9 @@ variable "cloud_run_service_name" {
     default = "dashboard-summary-service"
 }
 
-variable "genai_client_secret_value" {
-  description = "The value for the GENAI_CLIENT_SECRET"
+variable "GENAI_CLIENT_value" {
+  description = "The value for the GENAI_CLIENT"
   type        = string
   sensitive   = true
-  default = "YOUR VALUE"
+  default = "test"
 }

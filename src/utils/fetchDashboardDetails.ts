@@ -18,7 +18,7 @@ export const fetchDashboardDetails = async (
   dashboardId: string,
   core40SDK: any,
   extensionSDK: any,
-  dashboardFilters: Filters
+  dashboardFilters?: Filters
 ): Promise<DashboardMetadata> => {
     console.log("from function: ", dashboardId,dashboardFilters)
   const { description } = await core40SDK.ok(core40SDK.dashboard(dashboardId, 'description'));

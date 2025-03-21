@@ -1,3 +1,4 @@
+import { Looker40SDK } from '@looker/sdk';
 import { Query, DashboardMetadata, QuerySummary, LoadingStates } from '../types';
 import { fetchQuerySummary } from './fetchQuerySummary';
 
@@ -8,7 +9,8 @@ export const collateSummaries = async (
   extensionSDK: any,
   dashboardMetadata: DashboardMetadata,
   setQuerySummaries: (summaries: QuerySummary[]) => void,
-  setLoadingStates: React.Dispatch<React.SetStateAction<LoadingStates>>
+  setLoadingStates: React.Dispatch<React.SetStateAction<LoadingStates>>,
+  core40SDK: any
 ): Promise<QuerySummary[]> => {
   if (!queryResults || queryResults.length === 0) {
     console.error('No query results to collate');
@@ -34,7 +36,8 @@ export const collateSummaries = async (
           restfulService, 
           extensionSDK, 
           dashboardMetadata,
-          nextStepsInstructions
+          nextStepsInstructions,
+          core40SDK
         );
 
         if (querySummary) {
